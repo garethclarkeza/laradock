@@ -61,6 +61,8 @@ RUN if [ ${INSTALL_SOAP} = true ]; then \
     docker-php-ext-install soap \
 ;fi
 
+RUN apt-get install -y ssh
+
 ###########################################################################
 # pgsql
 ###########################################################################
@@ -506,7 +508,10 @@ RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     rm /var/log/lastlog /var/log/faillog
 
-RUN usermod -u 1000 www-data
+RUN usermod -u 1000 www-data \
+    # hack to allow access to vbox shared windows volume
+    && groupadd -g 998 vboxsf \
+    && usermod -a -G vboxsf www-data
 
 WORKDIR /var/www
 

@@ -45,7 +45,7 @@ PHP_INTERPRETER=php-fpm
 ### Docker Host IP ########################################
 
 # Enter your Docker Host IP (will be appended to /etc/hosts). Default is `10.0.75.1`
-DOCKER_HOST_IP=10.0.75.1
+DOCKER_HOST_IP=0.0.0.0
 
 ### Remote Interpreter ####################################
 
@@ -99,7 +99,7 @@ WORKSPACE_DRUSH_VERSION=8.1.17
 WORKSPACE_INSTALL_DRUPAL_CONSOLE=false
 WORKSPACE_INSTALL_AEROSPIKE=false
 WORKSPACE_INSTALL_V8JS=false
-WORKSPACE_INSTALL_LARAVEL_ENVOY=false
+WORKSPACE_INSTALL_LARAVEL_ENVOY=true
 WORKSPACE_INSTALL_LARAVEL_INSTALLER=false
 WORKSPACE_INSTALL_DEPLOYER=false
 WORKSPACE_INSTALL_PRESTISSIMO=false
@@ -179,11 +179,11 @@ APACHE_DOCUMENT_ROOT=/var/www/
 
 MYSQL_VERSION=latest
 MYSQL_DATABASE=default
-MYSQL_USER=default
+MYSQL_USER=homestead
 MYSQL_PASSWORD=secret
 MYSQL_PORT=3306
 MYSQL_ROOT_PASSWORD=root
-MYSQL_ENTRYPOINT_INITDB=./mysql/docker-entrypoint-initdb.d
+MYSQL_ENTRYPOINT_INITDB=../config/databases
 
 ### REDIS #################################################
 
@@ -207,11 +207,11 @@ MSSQL_PORT=1433
 ### MARIADB ###############################################
 
 MARIADB_DATABASE=default
-MARIADB_USER=default
+MARIADB_USER=homestead
 MARIADB_PASSWORD=secret
-MARIADB_PORT=3306
+MARIADB_PORT=33061
 MARIADB_ROOT_PASSWORD=root
-MARIADB_ENTRYPOINT_INITDB=./mariadb/docker-entrypoint-initdb.d
+MARIADB_ENTRYPOINT_INITDB=../config/databases
 
 ### POSTGRES ##############################################
 
