@@ -151,12 +151,6 @@ services:
         - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
         - ~/.ssh/id_rsa:/root/.ssh/id_rsa
         - ~/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub
-
-        - ~/.ssh/id_rsa:/var/www/.ssh/id_rsa
-        - ~/.ssh/id_rsa.pub:/var/www/.ssh/id_rsa.pub
-
-        - ~/.ssh/known_hosts:/var/www/.ssh/known_hosts
-#        - ~/.ssh/authorized_keys:/var/www/.ssh/authorized_keys
       expose:
         - "9000"
       extra_hosts:
