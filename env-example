@@ -5,7 +5,7 @@
 ### Paths #################################################
 
 # Point to the path of your applications code on your host
-APP_CODE_PATH_HOST=../
+APP_CODE_PATH_HOST=../../
 
 # Point to where the `APP_CODE_PATH_HOST` should be in the container. You may add flags to the path `:cached`, `:delegated`. When using Docker Sync add `:nocopy`
 APP_CODE_PATH_CONTAINER=/var/www:cached
@@ -99,7 +99,7 @@ WORKSPACE_DRUSH_VERSION=8.1.17
 WORKSPACE_INSTALL_DRUPAL_CONSOLE=false
 WORKSPACE_INSTALL_AEROSPIKE=false
 WORKSPACE_INSTALL_V8JS=false
-WORKSPACE_INSTALL_LARAVEL_ENVOY=false
+WORKSPACE_INSTALL_LARAVEL_ENVOY=true
 WORKSPACE_INSTALL_LARAVEL_INSTALLER=false
 WORKSPACE_INSTALL_DEPLOYER=false
 WORKSPACE_INSTALL_PRESTISSIMO=false
@@ -159,8 +159,8 @@ PHP_WORKER_INSTALL_BCMATH=false
 
 NGINX_HOST_HTTP_PORT=80
 NGINX_HOST_HTTPS_PORT=443
-NGINX_HOST_LOG_PATH=./logs/nginx/
-NGINX_SITES_PATH=./nginx/sites/
+NGINX_HOST_LOG_PATH=../../logs/nginx/
+NGINX_SITES_PATH=../../config/nginx/sites/
 NGINX_PHP_UPSTREAM_CONTAINER=php-fpm
 NGINX_PHP_UPSTREAM_PORT=9000
 
@@ -168,8 +168,8 @@ NGINX_PHP_UPSTREAM_PORT=9000
 
 APACHE_HOST_HTTP_PORT=80
 APACHE_HOST_HTTPS_PORT=443
-APACHE_HOST_LOG_PATH=./logs/apache2
-APACHE_SITES_PATH=./apache2/sites
+APACHE_HOST_LOG_PATH=../../logs/apache2
+APACHE_SITES_PATH=../../config/apache2/sites
 APACHE_PHP_UPSTREAM_CONTAINER=php-fpm
 APACHE_PHP_UPSTREAM_PORT=9000
 APACHE_PHP_UPSTREAM_TIMEOUT=60
@@ -179,11 +179,11 @@ APACHE_DOCUMENT_ROOT=/var/www/
 
 MYSQL_VERSION=latest
 MYSQL_DATABASE=default
-MYSQL_USER=default
+MYSQL_USER=homestead
 MYSQL_PASSWORD=secret
 MYSQL_PORT=3306
 MYSQL_ROOT_PASSWORD=root
-MYSQL_ENTRYPOINT_INITDB=./mysql/docker-entrypoint-initdb.d
+MYSQL_ENTRYPOINT_INITDB=../../config/databases
 
 ### REDIS #################################################
 
@@ -207,11 +207,11 @@ MSSQL_PORT=1433
 ### MARIADB ###############################################
 
 MARIADB_DATABASE=default
-MARIADB_USER=default
+MARIADB_USER=homestead
 MARIADB_PASSWORD=secret
-MARIADB_PORT=3306
+MARIADB_PORT=33061
 MARIADB_ROOT_PASSWORD=root
-MARIADB_ENTRYPOINT_INITDB=./mariadb/docker-entrypoint-initdb.d
+MARIADB_ENTRYPOINT_INITDB=../config/databases
 
 ### POSTGRES ##############################################
 
@@ -349,7 +349,7 @@ MONGODB_PORT=27017
 
 CADDY_HOST_HTTP_PORT=80
 CADDY_HOST_HTTPS_PORT=443
-CADDY_HOST_LOG_PATH=./logs/caddy
+CADDY_HOST_LOG_PATH=../../logs/caddy
 CADDY_CUSTOM_CADDYFILE=./caddy/Caddyfile
 
 ### LARAVEL ECHO SERVER ###################################
@@ -368,7 +368,7 @@ GITLAB_HOST_HTTPS_PORT=9898
 GITLAB_HOST_SSH_PORT=2289
 GITLAB_DOMAIN_NAME=http://localhost
 GITLAB_ROOT_PASSWORD=laradock
-GITLAB_HOST_LOG_PATH=./logs/gitlab
+GITLAB_HOST_LOG_PATH=../../logs/gitlab
 
 ### JUPYTERHUB ###############################################
 JUPYTERHUB_POSTGRES_HOST=postgres
