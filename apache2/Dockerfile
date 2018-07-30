@@ -13,6 +13,10 @@ ENV WEB_DOCUMENT_ROOT=${DOCUMENT_ROOT}
 
 ENV WEB_PHP_TIMEOUT=${PHP_UPSTREAM_TIMEOUT}
 
+RUN addgroup -g 998 vboxsf
+
+RUN addgroup www-data vboxsf
+
 EXPOSE 80 443
 
 WORKDIR /var/www/
