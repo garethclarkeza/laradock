@@ -30,7 +30,7 @@ COMPOSE_FILE=docker-compose.yml
 COMPOSE_PATH_SEPARATOR=:
 
 # Define the prefix of container names. This is useful if you have multiple projects that use laradock to have seperate containers per project.
-COMPOSE_PROJECT_NAME=laradock
+COMPOSE_PROJECT_NAME=workspace
 
 ### PHP Version ###########################################
 
@@ -50,7 +50,7 @@ DOCKER_HOST_IP=10.0.75.1
 ### Remote Interpreter ####################################
 
 # Choose a Remote Interpreter entry matching name. Default is `laradock`
-PHP_IDE_CONFIG=serverName=laradock
+PHP_IDE_CONFIG=serverName=workspace
 
 ### Windows Path ##########################################
 
@@ -183,7 +183,7 @@ MYSQL_USER=homestead
 MYSQL_PASSWORD=secret
 MYSQL_PORT=3306
 MYSQL_ROOT_PASSWORD=root
-MYSQL_ENTRYPOINT_INITDB=../../config/databases
+MYSQL_ENTRYPOINT_INITDB=../../config/databases/mysql
 
 ### REDIS #################################################
 
@@ -196,7 +196,7 @@ PERCONA_USER=homestead
 PERCONA_PASSWORD=secret
 PERCONA_PORT=3306
 PERCONA_ROOT_PASSWORD=root
-PERCONA_ENTRYPOINT_INITDB=./percona/docker-entrypoint-initdb.d
+PERCONA_ENTRYPOINT_INITDB=../../config/databases/percona
 
 ### MSSQL #################################################
 
@@ -211,7 +211,7 @@ MARIADB_USER=homestead
 MARIADB_PASSWORD=secret
 MARIADB_PORT=33061
 MARIADB_ROOT_PASSWORD=root
-MARIADB_ENTRYPOINT_INITDB=../config/databases
+MARIADB_ENTRYPOINT_INITDB=../../config/databases/mariadb
 
 ### POSTGRES ##############################################
 
@@ -219,7 +219,7 @@ POSTGRES_DB=default
 POSTGRES_USER=default
 POSTGRES_PASSWORD=secret
 POSTGRES_PORT=5432
-POSTGRES_ENTRYPOINT_INITDB=./postgres/docker-entrypoint-initdb.d
+POSTGRES_ENTRYPOINT_INITDB=../../config/databases/postgres
 
 ### RABBITMQ ##############################################
 
