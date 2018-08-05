@@ -17,6 +17,7 @@ RUN apk update \
     && apk add --no-cache bash \
     && adduser -D -H -u 1000 -s /bin/bash www-data
 
+# hack to allow access to vbox shared windows volume
 RUN addgroup -g 998 vboxsf
 RUN addgroup www-data vboxsf
 

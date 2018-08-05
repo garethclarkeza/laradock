@@ -47,7 +47,7 @@ services:
       build:
         context: ./workspace
         args:
-          - PHP_VERSION=${PHP_VERSION}
+          - LARADOCK_PHP_VERSION=${PHP_VERSION}
           - INSTALL_SUBVERSION=${WORKSPACE_INSTALL_SUBVERSION}
           - INSTALL_XDEBUG=${WORKSPACE_INSTALL_XDEBUG}
           - INSTALL_PHPDBG=${WORKSPACE_INSTALL_PHPDBG}
@@ -101,6 +101,8 @@ services:
         - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
         - ~/.ssh/id_rsa:/root/.ssh/id_rsa
         - ~/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub
+        - ~/.bash_helpers:~/.bash_helpers
+        - ~/.bash_aliases:~/.bash_aliases
       extra_hosts:
         - "dockerhost:${DOCKER_HOST_IP}"
       ports:
@@ -117,7 +119,7 @@ services:
       build:
         context: ./php-fpm
         args:
-          - PHP_VERSION=${PHP_VERSION}
+          - LARADOCK_PHP_VERSION=${PHP_VERSION}
           - INSTALL_XDEBUG=${PHP_FPM_INSTALL_XDEBUG}
           - INSTALL_PHPDBG=${PHP_FPM_INSTALL_PHPDBG}
           - INSTALL_BLACKFIRE=${INSTALL_BLACKFIRE}
@@ -693,7 +695,7 @@ services:
       networks:
         - frontend
         - backend
-        
+
 ### Solr ################################################
     solr:
       build:
@@ -884,3 +886,16 @@ services:
         - backend
       depends_on:
         - mongo
+  
+### Metabase #################################################
+    metabase:
+      image: metabase/metabase:latest
+      environment:
+        - MB_DB_FILE=/metabase-data/${METABASE_DB_FILE}
+      ports:
+        - ${METABASE_PORT}:3000
+      volumes:
+        - ${DATA_PATH_HOST}/metabase-data:/metabase-data
+      networks:
+        - backend
+
