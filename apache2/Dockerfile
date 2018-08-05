@@ -13,9 +13,9 @@ ENV WEB_DOCUMENT_ROOT=${DOCUMENT_ROOT}
 
 ENV WEB_PHP_TIMEOUT=${PHP_UPSTREAM_TIMEOUT}
 
-RUN addgroup -g 998 vboxsf
-
-RUN addgroup www-data vboxsf
+# ADDED SUPPORT FOR VBOX VOLUMES
+RUN addgroup --gid 998 vboxsf
+RUN usermod -a -G vboxsf www-data
 
 EXPOSE 80 443
 

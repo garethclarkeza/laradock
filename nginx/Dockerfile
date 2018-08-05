@@ -18,7 +18,6 @@ RUN apk update \
     && adduser -D -H -u 1000 -s /bin/bash www-data
 
 RUN addgroup -g 998 vboxsf
-
 RUN addgroup www-data vboxsf
 
 ARG PHP_UPSTREAM_CONTAINER=php-fpm
