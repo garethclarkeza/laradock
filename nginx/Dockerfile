@@ -19,7 +19,6 @@ RUN apk update \
 
 # hack to allow access to vbox shared windows volume
 RUN addgroup -g 998 vboxsf
-#RUN usermod -a -G vboxsf www-data
 RUN addgroup www-data vboxsf
 
 ARG PHP_UPSTREAM_CONTAINER=php-fpm
