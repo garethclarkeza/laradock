@@ -18,8 +18,8 @@ RUN apk update \
     && adduser -D -H -u 1000 -s /bin/bash www-data
 
 # hack to allow access to vbox shared windows volume
-RUN addgroup -g 998 vboxsf
-RUN addgroup www-data vboxsf
+RUN addgroup -g 1001 smbgroup
+RUN addgroup www-data smbgroup
 
 ARG PHP_UPSTREAM_CONTAINER=php-fpm
 ARG PHP_UPSTREAM_PORT=9000

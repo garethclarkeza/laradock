@@ -555,8 +555,8 @@ RUN apt-get clean && \
 
 RUN usermod -u 1000 www-data \
     # hack to allow access to vbox shared windows volume
-    && groupadd -g 998 vboxsf \
-    && usermod -a -G vboxsf www-data
+    && groupadd -g 1001 smbgroup \
+    && usermod -a -G smbgroup www-data
 
 WORKDIR /var/www
 

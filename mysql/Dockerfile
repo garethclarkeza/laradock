@@ -7,7 +7,7 @@ LABEL maintainer="Mahmoud Zalt <mahmoud@zalt.me>"
 # Set Timezone
 #####################################
 
-RUN usermod -u 1000 mysql 
+RUN usermod -u 1000 mysql
     # hack to allow access to vbox shared windows volume
 #    && groupadd -g 998 vboxsf \
 #    && usermod -a -G vboxsf mysql
