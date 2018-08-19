@@ -14,8 +14,8 @@ ENV WEB_DOCUMENT_ROOT=${DOCUMENT_ROOT}
 ENV WEB_PHP_TIMEOUT=${PHP_UPSTREAM_TIMEOUT}
 
 # ADDED SUPPORT FOR SMB SHARES
-RUN addgroup --gid 1111 smbgroup
-RUN usermod -a -G smbgroup www-data
+RUN addgroup --gid 666 zenshare
+RUN usermod -a -G zenshare www-data
 
 EXPOSE 80 443
 

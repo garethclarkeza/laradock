@@ -555,8 +555,8 @@ RUN apt-get clean && \
 
 RUN usermod -u 1000 www-data \
     # hack to allow access to vbox shared windows volume
-    && groupadd -g 1111 smbgroup \
-    && usermod -a -G smbgroup www-data
+    && groupadd -g 666 zenshare \
+    && usermod -a -G zenshare www-data
 
 WORKDIR /var/www
 
